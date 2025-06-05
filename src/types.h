@@ -1,22 +1,23 @@
 #include <stdlib.h>
 
 enum cursor_direction { cursor_up, cursor_down, cursor_left, cursor_right };
+// token类型
 enum token {
-  CMD = 1,
-  PIPE_CMD,
-  PIPE,
-  AMPAMP,
-  AMP_CMD,
-  GREATGREAT,
-  GREAT,
-  LESS,
-  AMP_GREAT,
-  AMP_GREATGREAT,
-  WHITESPACE,
-  ASTERISK,
-  QUESTION,
-  ARG,
-  ENUM_LEN
+  CMD = 1,           // 命令
+  PIPE_CMD,          // 管道后的命令
+  PIPE,              // 管道符号 '|'
+  AMPAMP,            // 逻辑与 '&&'
+  AMP_CMD,           // '&' 后的命令
+  GREATGREAT,        // 追加输出 '>>'
+  GREAT,             // 输出重定向 '>'
+  LESS,              // 输入重定向 '<'
+  AMP_GREAT,         // 重定向标准输出和错误输出 '>&'
+  AMP_GREATGREAT,    // 追加标准输出和错误输出 '>>&'
+  WHITESPACE,        // 空白字符
+  ASTERISK,          // 通配符 '*'
+  QUESTION,          // 通配符 '?'
+  ARG,               // 参数
+  ENUM_LEN           // token 类型数量
 };
 
 typedef struct wildcard_groups {
@@ -70,6 +71,7 @@ enum autocomplete_type {
 
 enum color_decorations { standard = 0, bold = 1, underline = 4, reversed = 7 };
 
+// 坐标,存储终端大小
 typedef struct coordinates {
   int x;
   int y;
@@ -148,6 +150,7 @@ typedef struct {
   int len;
   function_by_name* array;
 } builtins_array;
+
 
 typedef struct {
   int successful;

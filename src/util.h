@@ -71,7 +71,7 @@ int getLongestWordInArray(const string_array array);
 char* removeMultipleWhitespaces(char* string);
 bool isExec(char* file);
 token_index getCurrentToken(int line_index, token_index_arr tokenized_line);
-void removeEscapesString(char** string);
+void removeEscapesString(char* string);
 void removeSlice(char** line, int start, int end);
 token_index_arr tokenizeLine(char* line);
 int isBuiltin(char* command, builtins_array builtins);
